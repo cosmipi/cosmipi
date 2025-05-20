@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosmipi - Universal Research Lab</title>
+    <title>CosmiPi - Universal Research Lab</title>
     <link rel="shortcut icon" href="./IMG/cosmp.svg" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,7 +17,8 @@
             margin: 0;
             line-height: 1.6;
         }
-       .cosmic-bg {
+
+        .cosmic-bg {
             position: fixed;
             top: 0;
             left: 0;
@@ -26,6 +28,7 @@
             pointer-events: none;
             background: linear-gradient(to bottom, rgba(15, 30, 60, 0.12), transparent);
         }
+
         .stars {
             width: 100%;
             height: 100%;
@@ -36,23 +39,40 @@
             transform: translateY(0);
             transition: transform 0.1s linear;
         }
+
         .particles {
             width: 100%;
             height: 100%;
         }
+
         .particle {
             position: absolute;
             border-radius: 50%;
             box-shadow: 0 0 18px rgba(255, 255, 255, 1);
             animation: sparkle 1.5s infinite;
         }
-        .particle.red { background: rgba(255, 60, 60, 0.9); }
-        .particle.blue { background: rgba(10, 80, 170, 0.9); }
-        .particle.green { background: rgba(60, 180, 100, 0.9); }
-        .particle.purple { background: rgba(140, 60, 180, 0.9); }
-        .particle.white { background: rgba(255, 255, 255, 1); }
 
-          .ray {
+        .particle.red {
+            background: rgba(255, 60, 60, 0.9);
+        }
+
+        .particle.blue {
+            background: rgba(10, 80, 170, 0.9);
+        }
+
+        .particle.green {
+            background: rgba(60, 180, 100, 0.9);
+        }
+
+        .particle.purple {
+            background: rgba(140, 60, 180, 0.9);
+        }
+
+        .particle.white {
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .ray {
             position: absolute;
             width: 2px;
             height: 70px;
@@ -60,15 +80,22 @@
             animation: rayBurst 3s infinite;
             transform-origin: top;
         }
+
         .node-line {
             position: absolute;
             border: 1px solid rgba(135, 206, 235, 0.5);
             animation: nodeFade 3.5s infinite;
         }
-        .black-hole, .planet, .rocket, .drone, .satellite {
+
+        .black-hole,
+        .planet,
+        .rocket,
+        .drone,
+        .satellite {
             position: absolute;
             animation: cosmicOrbit 12s linear infinite;
         }
+
         .black-hole {
             width: 60px;
             height: 60px;
@@ -77,6 +104,7 @@
             animation: blackHoleSpin 8s linear infinite;
             box-shadow: 0 0 25px rgba(135, 206, 235, 0.6);
         }
+
         .black-hole-particle {
             position: absolute;
             width: 4px;
@@ -85,300 +113,700 @@
             border-radius: 50%;
             animation: blackHoleOrbit 4s linear infinite;
         }
+
         .planet {
             width: 25px;
             height: 25px;
             background: radial-gradient(circle, rgba(60, 180, 100, 0.9) 35%, transparent 75%);
         }
+
         .rocket {
             width: 12px;
             height: 24px;
             background: radial-gradient(circle, rgba(255, 60, 60, 0.9) 35%, transparent 75%);
         }
+
         .drone {
             width: 18px;
             height: 18px;
             background: radial-gradient(circle, rgba(140, 60, 180, 0.9) 35%, transparent 75%);
         }
+
         .satellite {
             width: 15px;
             height: 15px;
             background: radial-gradient(circle, rgba(10, 80, 170, 0.9) 35%, transparent 75%);
         }
+
         @keyframes twinkle {
-            0%, 100% { opacity: 0.9; }
-            50% { opacity: 0.6; }
-        }
-        @keyframes sparkle {
-            0% { transform: scale(0); opacity: 1; }
-            50% { transform: scale(2); opacity: 0.7; }
-            100% { transform: scale(0); opacity: 0; }
-        }
-        @keyframes rayBurst {
-            0% { transform: translateY(0) scaleY(1); opacity: 1; }
-            50% { transform: translateY(100vh) scaleY(3); opacity: 0; }
-            51% { transform: translateY(-100vh); opacity: 0; }
-            100% { transform: translateY(0); opacity: 0; }
-        }
-        @keyframes nodeFade {
-            0% { opacity: 0.5; }
-            50% { opacity: 0.2; }
-            100% { opacity: 0.5; }
-        }
-        @keyframes blackHoleSpin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        @keyframes blackHoleOrbit {
-            0% { transform: rotate(0deg) translateX(35px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(35px) rotate(-360deg); }
-        }
-        @keyframes cosmicOrbit {
-            0% { transform: translateX(0) rotate(0deg); }
-            100% { transform: translateX(200px) rotate(360deg); }
-        }
-        @keyframes galaxySpin {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-        @keyframes cometTrail {
-            0% { opacity: 1; transform: translateX(0); }
-            100% { opacity: 0; transform: translateX(50px); }
+
+            0%,
+            100% {
+                opacity: 0.9;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
         }
 
         @keyframes sparkle {
-            0% { transform: scale(0); opacity: 0.8; }
-            50% { transform: scale(1.2); opacity: 0.5; }
-            100% { transform: scale(0); opacity: 0; }
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(2);
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
         }
+
+        @keyframes rayBurst {
+            0% {
+                transform: translateY(0) scaleY(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: translateY(100vh) scaleY(3);
+                opacity: 0;
+            }
+
+            51% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+        }
+
+        @keyframes nodeFade {
+            0% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 0.2;
+            }
+
+            100% {
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes blackHoleSpin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes blackHoleOrbit {
+            0% {
+                transform: rotate(0deg) translateX(35px) rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg) translateX(35px) rotate(-360deg);
+            }
+        }
+
+        @keyframes cosmicOrbit {
+            0% {
+                transform: translateX(0) rotate(0deg);
+            }
+
+            100% {
+                transform: translateX(200px) rotate(360deg);
+            }
+        }
+
+        @keyframes galaxySpin {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        @keyframes cometTrail {
+            0% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: scale(0);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+
         @keyframes pulsarGlow {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.7; }
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.7;
+            }
         }
+
         /* Custom Tailwind styles */
         [data-dropdown] {
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
+
         [data-dropdown].hidden {
             opacity: 0;
             transform: translateY(-10px);
         }
     </style>
 </head>
+
 <body class="bg-gray-100 text-gray-900">
-     <div class="cosmic-bg">
+    <div class="cosmic-bg">
         <div class="stars" id="stars"></div>
         <div class="particles" id="particles"></div>
     </div>
-    <nav class="fixed top-0 left-0 w-full bg-white bg-opacity-10 backdrop-blur-md border-b border-white border-opacity-20 z-50">
+    <nav
+        class="fixed top-0 left-0 w-full bg-white bg-opacity-10 backdrop-blur-md border-b border-white border-opacity-20 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between py-2">
                 <!-- Logo -->
-                <a href="#" class="text-xl font-semibold text-black flex items-center">
-                     <img src="./IMG/cosmp.svg" height="54px" width="44px">
+                <a href="#" class="flex items-center">
+                    <img src="./IMG/cosmp.svg" class="h-14 w-11" alt="CosmiPi Logo">
                 </a>
                 <!-- Desktop Menu -->
-                <div class="hidden lg:flex items-center justify-center space-x-2">
-                    <a href="#home" class="text-black text-sm font-normal px-3 py-2 hover:text-gray-600 hover:shadow-[0_0_8px_rgba(147,197,253,0.5)] rounded transition flex items-center">
-                        <i class="fas fa-home mr-1"></i>Home
-                    </a>
-                    <a href="#about" class="text-black text-sm font-normal px-3 py-2 hover:text-gray-600 hover:shadow-[0_0_8px_rgba(147,197,253,0.5)] rounded transition flex items-center">
-                        <i class="fas fa-info-circle mr-1"></i>About
-                    </a>
+                <ul class="hidden lg:flex items-center justify-center space-x-2">
+                    <li>
+                        <a href="#home"
+                            class="text-black text-sm font-normal px-3 py-2 hover:text-gray-600 hover:shadow-[0_0_8px_rgba(147,197,253,0.5)] rounded transition flex items-center">
+                            <i class="fas fa-home mr-1"></i>Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#about"
+                            class="text-black text-sm font-normal px-3 py-2 hover:text-gray-600 hover:shadow-[0_0_8px_rgba(147,197,253,0.5)] rounded transition flex items-center">
+                            <i class="fas fa-info-circle mr-1"></i>About
+                        </a>
+                    </li>
                     <!-- Research Dropdown -->
-                    <div class="relative group">
-                        <a href="#research" class="text-black text-sm font-normal px-3 py-2 hover:text-gray-600 hover:shadow-[0_0_8px_rgba(147,197,253,0.5)] rounded transition flex items-center">
+                    <li class="relative group">
+                        <a href="#research"
+                            class="text-black text-sm font-normal px-3 py-2 hover:text-gray-600 hover:shadow-[0_0_8px_rgba(147,197,253,0.5)] rounded transition flex items-center">
                             <i class="bi bi-asterisk mr-1"></i>Research
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </a>
-                        <div class="absolute left-0 mt-0 w-40 bg-white bg-opacity-10 backdrop-blur-md rounded-lg shadow-lg border border-dashed border-gray-300/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <a href="#research" class="block px-4 py-2 text-black text-sm hover:bg-white hover:bg-opacity-15 hover:text-gray-600 flex items-center"><i class="bi bi-circle mr-2"></i>Black Holes</a>
-                            <a href="#research" class="block px-4 py-2 text-black text-sm hover:bg-white hover:bg-opacity-15 hover:text-gray-600 flex items-center"><i class="bi bi-globe mr-2"></i>Exoplanets</a>
-                            <a href="#research" class="block px-4 py-2 text-black text-sm hover:bg-white hover:bg-opacity-15 hover:text-gray-600 flex items-center"><i class="bi bi-stars mr-2"></i>Cosmology</a>
-                        </div>
-                    </div>
+                        <ul
+                            class="absolute left-0 mt-1 w-40 bg-white bg-opacity-20 backdrop-blur-md rounded-lg shadow-lg border border-dashed border-gray-300/30 pointer-events-none group-hover:pointer-events-auto group-hover:opacity-100 opacity-0 transition-opacity duration-300 bg-gradient-to-b from-white/30 to-white/10">
+                            <li><a href="#research"
+                                    class="block px-4 py-2 text-black text-sm hover:bg-white hover:bg-opacity-15 hover:text-gray-600 flex items-center"><i
+                                        class="bi bi-circle mr-2"></i>Black Holes</a></li>
+                            <li><a href="#research"
+                                    class="block px-4 py-2 text-black text-sm hover:bg-white hover:bg-opacity-15 hover:text-gray-600 flex items-center"><i
+                                        class="bi bi-globe mr-2"></i>Exoplanets</a></li>
+                            <li><a href="#research"
+                                    class="block px-4 py-2 text-black text-sm hover:bg-white hover:bg-opacity-15 hover:text-gray-600 flex items-center"><i
+                                        class="bi bi-stars mr-2"></i>Cosmology</a></li>
+                        </ul>
+                    </li>
                     <!-- Projects Dropdown -->
-                    <div class="relative group">
-                        <a href="#projects" class="text-black text-sm font-normal px-3 py-2 hover:text-gray-600 hover:shadow-[0_0_8px_rgba(147,197,253,0.5)] rounded transition flex items-center">
+                    <li class="relative group">
+                        <a href="#projects"
+                            class="text-black text-sm font-normal px-3 py-2 hover:text-gray-600 hover:shadow-[0_0_8px_rgba(147,197,253,0.5)] rounded transition flex items-center">
                             <i class="bi bi-gear mr-1"></i>Projects
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </a>
-                        <div class="absolute left-0 mt-0 w-40 bg-white bg-opacity-10 backdrop-blur-md rounded-lg shadow-lg border border-dashed border-gray-300/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <a href="#projects" class="block px-4 py-2 text-black text-sm hover:bg-white hover:bg-opacity-15 hover:text-gray-600 flex items-center"><i class="bi bi-eye mr-2"></i>BlackHoleViz</a>
-                            <a href="#projects" class="block px-4 py-2 text-black text-sm hover:bg-white hover:bg-opacity-15 hover:text-gray-600 flex items-center"><i class="bi bi-diagram-3 mr-2"></i>GalaxySim</a>
-                        </div>
-                    </div>
+                        <ul
+                            class="absolute left-0 mt-1 w-40 bg-white bg-opacity-20 backdrop-blur-md rounded-lg shadow-lg border border-dashed border-gray-300/30 pointer-events-none group-hover:pointer-events-auto group-hover:opacity-100 opacity-0 transition-opacity duration-300 bg-gradient-to-b from-white/30 to-white/10">
+                            <li><a href="#projects"
+                                    class="block px-4 py-2 text-black text-sm hover:bg-white hover:bg-opacity-15 hover:text-gray-600 flex items-center"><i
+                                        class="bi bi-eye mr-2"></i>BlackHoleViz</a></li>
+                            <li><a href="#projects"
+                                    class="block px-4 py-2 text-black text-sm hover:bg-white hover:bg-opacity-15 hover:text-gray-600 flex items-center"><i
+                                        class="bi bi-diagram-3 mr-2"></i>GalaxySim</a></li>
+                        </ul>
+                    </li>
                     <!-- Discover Dropdown -->
-                    <div class="relative group">
-                        <a href="#discover" class="text-black text-sm font-normal px-3 py-2 hover:text-gray-600 hover:shadow-[0_0_8px_rgba(147,197,253,0.5)] rounded transition flex items-center">
+                    <li class="relative group">
+                        <a href="#discover"
+                            class="text-black text-sm font-normal px-3 py-2 hover:text-gray-600 hover:shadow-[0_0_8px_rgba(147,197,253,0.5)] rounded transition flex items-center">
                             <i class="fas fa-star mr-1"></i>Discover
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </a>
-                        <div class="absolute left-0 mt-0 w-40 bg-white bg-opacity-10 backdrop-blur-md rounded-lg shadow-lg border border-dashed border-gray-300/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <a href="#discoveries" class="block px-4 py-2 text-black text-sm hover:bg-white hover:bg-opacity-15 hover:text-gray-600 flex items-center"><i class="fas fa-lightbulb mr-2"></i>Discoveries</a>
-                            <a href="#team" class="block px-4 py-2 text-black text-sm hover:bg-white hover:bg-opacity-15 hover:text-gray-600 flex items-center"><i class="fas fa-users mr-2"></i>Team</a>
-                            <a href="#events" class="block px-4 py-2 text-black text-sm hover:bg-white hover:bg-opacity-15 hover:text-gray-600 flex items-center"><i class="fas fa-calendar mr-2"></i>Events</a>
-                            <a href="#publications" class="block px-4 py-2 text-black text-sm hover:bg-white hover:bg-opacity-15 hover:text-gray-600 flex items-center"><i class="fas fa-book mr-2"></i>Publications</a>
-                        </div>
-                    </div>
-                    <a href="#open-source" class="text-black text-sm font-normal px-3 py-2 hover:text-gray-600 hover:shadow-[0_0_8px_rgba(147,197,253,0.5)] rounded transition flex items-center">
-                        <i class="fas fa-code mr-1"></i>Open Source
-                    </a>
-                    <a href="#contact" class="text-black text-sm font-normal px-3 py-2 hover:text-gray-600 hover:shadow-[0_0_8px_rgba(147,197,253,0.5)] rounded transition flex items-center">
-                        <i class="fas fa-envelope mr-1"></i>Contact
-                    </a>
-                </div>
+                        <ul
+                            class="absolute left-0 mt-1 w-40 bg-white bg-opacity-20 backdrop-blur-md rounded-lg shadow-lg border border-dashed border-gray-300/30 pointer-events-none group-hover:pointer-events-auto group-hover:opacity-100 opacity-0 transition-opacity duration-300 bg-gradient-to-b from-white/30 to-white/10">
+                            <li><a href="#discoveries"
+                                    class="block px-4 py-2 text-black text-sm hover:bg-white hover:bg-opacity-15 hover:text-gray-600 flex items-center"><i
+                                        class="fas fa-lightbulb mr-2"></i>Discoveries</a></li>
+                            <li><a href="#team"
+                                    class="block px-4 py-2 text-black text-sm hover:bg-white hover:bg-opacity-15 hover:text-gray-600 flex items-center"><i
+                                        class="fas fa-users mr-2"></i>Team</a></li>
+                            <li><a href="#events"
+                                    class="block px-4 py-2 text-black text-sm hover:bg-white hover:bg-opacity-15 hover:text-gray-600 flex items-center"><i
+                                        class="fas fa-calendar mr-2"></i>Events</a></li>
+                            <li><a href="#publications"
+                                    class="block px-4 py-2 text-black text-sm hover:bg-white hover:bg-opacity-15 hover:text-gray-600 flex items-center"><i
+                                        class="fas fa-book mr-2"></i>Publications</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#open-source"
+                            class="text-black text-sm font-normal px-3 py-2 hover:text-gray-600 hover:shadow-[0_0_8px_rgba(147,197,253,0.5)] rounded transition flex items-center">
+                            <i class="fas fa-code mr-1"></i>Open Source
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact"
+                            class="text-black text-sm font-normal px-3 py-2 hover:text-gray-600 hover:shadow-[0_0_8px_rgba(147,197,253,0.5)] rounded transition flex items-center">
+                            <i class="fas fa-envelope mr-1"></i>Contact
+                        </a>
+                    </li>
+                </ul>
                 <!-- Mobile Toggler -->
-                <button id="mobile-toggle" class="lg:hidden p-2 rounded-full text-black shadow-md hover:shadow-[0_0_8px_rgba(147,197,253,0.5)] focus:outline-none animate-[pulsarGlow_2s_infinite]">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
-                        <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+                <button id="mobile-toggle"
+                    class="lg:hidden p-2 rounded-full text-black shadow-md hover:shadow-[0_0_8px_rgba(147,197,253,0.5)] focus:outline-none animate-[pulsarGlow_2s_infinite]">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2" />
+                        <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" />
                     </svg>
                 </button>
             </div>
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden lg:hidden bg-white bg-opacity-90 backdrop-blur-md rounded-b-lg px-6 py-4 max-w-md mx-auto max-h-[70vh] overflow-y-auto flex flex-col items-center bg-gradient-to-b from-gray-900/10 to-transparent">
-                <a href="#home" class="block text-black text-lg py-2 hover:bg-black hover:bg-opacity-10 rounded transition w-full text-center flex items-center justify-center"><i class="fas fa-home mr-2"></i>Home</a>
-                <a href="#about" class="block text-black text-lg py-2 hover:bg-black hover:bg-opacity-10 rounded transition w-full text-center flex items-center justify-center"><i class="fas fa-info-circle mr-2"></i>About</a>
+            <ul id="mobile-menu"
+                class="hidden lg:hidden bg-white bg-opacity-90 backdrop-blur-md rounded-b-lg px-6 py-4 max-w-md mx-auto max-h-[70vh] overflow-y-auto flex flex-col items-center bg-gradient-to-b from-gray-900/10 to-transparent">
+                <li class="w-full">
+                    <a href="#home"
+                        class="block text-black text-lg py-2 hover:bg-black hover:bg-opacity-10 rounded transition w-full text-center flex items-center justify-center"><i
+                            class="fas fa-home mr-2"></i>Home</a>
+                </li>
+                <li class="w-full">
+                    <a href="#about"
+                        class="block text-black text-lg py-2 hover:bg-black hover:bg-opacity-10 rounded transition w-full text-center flex items-center justify-center"><i
+                            class="fas fa-info-circle mr-2"></i>About</a>
+                </li>
                 <!-- Research Dropdown -->
-                <div class="w-full">
-                    <button class="flex items-center justify-center w-full text-black text-lg py-2 hover:bg-black hover:bg-opacity-10 rounded transition" onclick="toggleDropdown('research-mobile')">
+                <li class="w-full">
+                    <button
+                        class="flex items-center justify-center w-full text-black text-lg py-2 hover:bg-black hover:bg-opacity-10 rounded transition"
+                        onclick="toggleDropdown('research-mobile')">
                         <i class="bi bi-asterisk mr-2"></i>Research
-                        <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
                         </svg>
                     </button>
-                    <div id="research-mobile" class="hidden pl-4" data-dropdown>
-                        <a href="#research" class="block text-black text-base py-1 hover:bg-black hover:bg-opacity-10 rounded flex items-center"><i class="bi bi-circle mr-2"></i>Black Holes</a>
-                        <a href="#research" class="block text-black text-base py-1 hover:bg-black hover:bg-opacity-10 rounded flex items-center"><i class="bi bi-globe mr-2"></i>Exoplanets</a>
-                        <a href="#research" class="block text-black text-base py-1 hover:bg-black hover:bg-opacity-10 rounded flex items-center"><i class="bi bi-stars mr-2"></i>Cosmology</a>
-                    </div>
-                </div>
+                    <ul id="research-mobile" class="hidden w-full flex flex-col items-center" data-dropdown>
+                        <li class="w-full"><a href="#research"
+                                class="block text-black text-base py-1 hover:bg-black hover:bg-opacity-10 rounded flex items-center justify-center"><i
+                                    class="bi bi-circle mr-2"></i>Black Holes</a></li>
+                        <li class="w-full"><a href="#research"
+                                class="block text-black text-base py-1 hover:bg-black hover:bg-opacity-10 rounded flex items-center justify-center"><i
+                                    class="bi bi-globe mr-2"></i>Exoplanets</a></li>
+                        <li class="w-full"><a href="#research"
+                                class="block text-black text-base py-1 hover:bg-black hover:bg-opacity-10 rounded flex items-center justify-center"><i
+                                    class="bi bi-stars mr-2"></i>Cosmology</a></li>
+                    </ul>
+                </li>
                 <!-- Projects Dropdown -->
-                <div class="w-full">
-                    <button class="flex items-center justify-center w-full text-black text-lg py-2 hover:bg-black hover:bg-opacity-10 rounded transition" onclick="toggleDropdown('projects-mobile')">
+                <li class="w-full">
+                    <button
+                        class="flex items-center justify-center w-full text-black text-lg py-2 hover:bg-black hover:bg-opacity-10 rounded transition"
+                        onclick="toggleDropdown('projects-mobile')">
                         <i class="bi bi-gear mr-2"></i>Projects
-                        <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
                         </svg>
                     </button>
-                    <div id="projects-mobile" class="hidden pl-4" data-dropdown>
-                        <a href="#projects" class="block text-black text-base py-1 hover:bg-black hover:bg-opacity-10 rounded flex items-center"><i class="bi bi-eye mr-2"></i>BlackHoleViz</a>
-                        <a href="#projects" class="block text-black text-base py-1 hover:bg-black hover:bg-opacity-10 rounded flex items-center"><i class="bi bi-diagram-3 mr-2"></i>GalaxySim</a>
-                    </div>
-                </div>
+                    <ul id="projects-mobile" class="hidden w-full flex flex-col items-center" data-dropdown>
+                        <li class="w-full"><a href="#projects"
+                                class="block text-black text-base py-1 hover:bg-black hover:bg-opacity-10 rounded flex items-center justify-center"><i
+                                    class="bi bi-eye mr-2"></i>BlackHoleViz</a></li>
+                        <li class="w-full"><a href="#projects"
+                                class="block text-black text-base py-1 hover:bg-black hover:bg-opacity-10 rounded flex items-center justify-center"><i
+                                    class="bi bi-diagram-3 mr-2"></i>GalaxySim</a></li>
+                    </ul>
+                </li>
                 <!-- Discover Dropdown -->
-                <div class="w-full">
-                    <button class="flex items-center justify-center w-full text-black text-lg py-2 hover:bg-black hover:bg-opacity-10 rounded transition" onclick="toggleDropdown('discover-mobile')">
+                <li class="w-full">
+                    <button
+                        class="flex items-center justify-center w-full text-black text-lg py-2 hover:bg-black hover:bg-opacity-10 rounded transition"
+                        onclick="toggleDropdown('discover-mobile')">
                         <i class="fas fa-star mr-2"></i>Discover
-                        <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
                         </svg>
                     </button>
-                    <div id="discover-mobile" class="hidden pl-4" data-dropdown>
-                        <a href="#discoveries" class="block text-black text-base py-1 hover:bg-black hover:bg-opacity-10 rounded flex items-center"><i class="fas fa-lightbulb mr-2"></i>Discoveries</a>
-                        <a href="#team" class="block text-black text-base py-1 hover:bg-black hover:bg-opacity-10 rounded flex items-center"><i class="fas fa-users mr-2"></i>Team</a>
-                        <a href="#events" class="block text-black text-base py-1 hover:bg-black hover:bg-opacity-10 rounded flex items-center"><i class="fas fa-calendar mr-2"></i>Events</a>
-                        <a href="#publications" class="block text-black text-base py-1 hover:bg-black hover:bg-opacity-10 rounded flex items-center"><i class="fas fa-book mr-2"></i>Publications</a>
-                    </div>
-                </div>
-                <a href="#open-source" class="block text-black text-lg py-2 hover:bg-black hover:bg-opacity-10 rounded transition w-full text-center flex items-center justify-center"><i class="fas fa-code mr-2"></i>Open Source</a>
-                <a href="#contact" class="block text-black text-lg py-2 hover:bg-black hover:bg-opacity-10 rounded transition w-full text-center flex items-center justify-center"><i class="fas fa-envelope mr-2"></i>Contact</a>
-            </div>
+                    <ul id="discover-mobile" class="hidden w-full flex flex-col items-center" data-dropdown>
+                        <li class="w-full"><a href="#discoveries"
+                                class="block text-black text-base py-1 hover:bg-black hover:bg-opacity-10 rounded flex items-center justify-center"><i
+                                    class="fas fa-lightbulb mr-2"></i>Discoveries</a></li>
+                        <li class="w-full"><a href="#team"
+                                class="block text-black text-base py-1 hover:bg-black hover:bg-opacity-10 rounded flex items-center justify-center"><i
+                                    class="fas fa-users mr-2"></i>Team</a></li>
+                        <li class="w-full"><a href="#events"
+                                class="block text-black text-base py-1 hover:bg-black hover:bg-opacity-10 rounded flex items-center justify-center"><i
+                                    class="fas fa-calendar mr-2"></i>Events</a></li>
+                        <li class="w-full"><a href="#publications"
+                                class="block text-black text-base py-1 hover:bg-black hover:bg-opacity-10 rounded flex items-center justify-center"><i
+                                    class="fas fa-book mr-2"></i>Publications</a></li>
+                    </ul>
+                </li>
+                <li class="w-full">
+                    <a href="#open-source"
+                        class="block text-black text-lg py-2 hover:bg-black hover:bg-opacity-10 rounded transition w-full text-center flex items-center justify-center"><i
+                            class="fas fa-code mr-2"></i>Open Source</a>
+                </li>
+                <li class="w-full">
+                    <a href="#contact"
+                        class="block text-black text-lg py-2 hover:bg-black hover:bg-opacity-10 rounded transition w-full text-center flex items-center justify-center"><i
+                            class="fas fa-envelope mr-2"></i>Contact</a>
+                </li>
+            </ul>
         </div>
         <!-- Cosmic Gradient Overlay -->
         <div class="absolute inset-0 bg-gradient-to-b from-gray-900/5 to-blue-500/5 pointer-events-none"></div>
     </nav>
 
-    <section id="home" class="min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16 relative" data-aos="fade-up">
-        <div class="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-lg">
+    <section id="home" class="min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16 relative"
+        data-aos="fade-up">
+        <!-- SVG Top Decoration -->
+        <svg class="absolute top-6 left-6 w-24 h-24 opacity-20" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" fill="none" stroke="#87ceeb" stroke-width="2" />
+            <circle cx="50" cy="50" r="20" fill="none" stroke="#87ceeb" stroke-width="2" />
+        </svg>
+
+        <!-- SVG Bottom Decoration -->
+        <svg class="absolute bottom-6 right-6 w-24 h-24 opacity-20" viewBox="0 0 100 100">
+            <path d="M30 30 Q50 10 70 30 T90 70 T50 90 T10 70 T30 30" fill="none" stroke="#87ceeb" stroke-width="2" />
+        </svg>
+
+        <div class="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-lg relative z-10">
             <h1 class="text-4xl font-semibold mb-3">CosmiPi Research Lab</h1>
-            <p class="text-lg text-gray-600 mb-2 max-w-xl mx-auto">Exploring the Universe</p>
-            <p class="text-gray-600 max-w-xl mx-auto">We partner with NASA, ESA, and global institutes to advance astrophysics and cosmic discovery.</p>
-            <a href="#about" class="mt-3 inline-block border border-gray-900 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-900 hover:text-white transition">Learn More</a>
+            <p class="text-lg text-gray-600 mb-2 max-w-xl mx-auto">Voyage to the Edge of Eternity</p>
+            <p class="text-gray-600 max-w-xl mx-auto">We’re the vanguard of cosmic exploration, partnering with NASA,
+                ESA, and global pioneers to decode black holes, galaxies, and the fabric of spacetime.</p>
+
+            <!-- ✨ NEW: Feature Bullets -->
+            <ul class="mt-6 text-left text-gray-700 list-disc list-inside max-w-xl mx-auto space-y-2">
+                <li>🔭 Precision simulations of black hole event horizons</li>
+                <li>🌌 Real-time galaxy rendering powered by open-source tools</li>
+                <li>🛰️ Interstellar signal mapping & waveform decoding</li>
+            </ul>
+
+            <!-- ✨ NEW: Vision Statement -->
+            <p class="italic text-gray-500 mt-6">“Charting unknown realms of the universe — with data, dreams, and deep
+                space.”</p>
+
+            <a href="#about"
+                class="mt-6 inline-block border border-gray-900 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-900 hover:text-white transition">
+                Embark on the Journey
+            </a>
         </div>
     </section>
 
-    <section id="about" class="min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16" data-aos="zoom-in">
-        <div class="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-lg">
+
+    <section id="about" class="min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16 relative"
+        data-aos="zoom-in">
+        <!-- Decorative SVG Top Left -->
+        <svg class="absolute top-6 left-6 w-20 h-20 opacity-20" viewBox="0 0 100 100">
+            <path d="M50 10 A40 40 0 0 1 90 50 A40 40 0 0 1 50 90 A40 40 0 0 1 10 50 A40 40 0 0 1 50 10" fill="none"
+                stroke="#87ceeb" stroke-width="2" />
+        </svg>
+
+        <div class="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-lg relative z-10">
             <h2 class="text-3xl font-semibold mb-3">Our Mission</h2>
-            <p class="text-gray-600 max-w-xl mx-auto">CosmiPi is a global leader in astrophysics, probing the universe’s mysteries with cutting-edge research.</p>
+            <p class="text-gray-600 max-w-xl mx-auto mb-4">CosmiPi is a global leader in astrophysics, probing the
+                universe’s mysteries with cutting-edge research.</p>
+
+            <!-- Expanded Goals -->
+            <ul class="text-left text-gray-700 list-disc list-inside max-w-xl mx-auto space-y-2">
+                <li>Advance simulation of black holes and gravitational anomalies</li>
+                <li>Collaborate with space agencies for deep-space research</li>
+                <li>Bridge theoretical physics with visual and open-source exploration</li>
+            </ul>
+
+            <!-- Inspiring Line -->
+            <p class="italic text-gray-500 mt-4">“To understand the cosmos is to understand ourselves.”</p>
         </div>
     </section>
 
-    <section id="research" class="min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16" data-aos="fade-up">
-        <div class="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-lg">
+    <section id="research"
+        class="min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16 relative"
+        data-aos="fade-up">
+        <!-- Galaxy-style SVG Decoration -->
+        <svg class="absolute top-6 right-6 w-24 h-24 opacity-20" viewBox="0 0 200 200">
+            <path d="M100 20 A80 80 0 0 1 180 100 A80 80 0 0 1 100 180 A80 80 0 0 1 20 100 A80 80 0 0 1 100 20"
+                fill="none" stroke="#87ceeb" stroke-width="1.5" />
+        </svg>
+
+        <div class="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-lg relative z-10">
             <h2 class="text-3xl font-semibold mb-3">Research Areas</h2>
-            <p class="text-gray-600 max-w-xl mx-auto">We explore black holes, exoplanets, and cosmology to redefine our understanding of the cosmos.</p>
-            <a href="#open-source" class="mt-3 inline-block border border-gray-900 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-900 hover:text-white transition">View Research</a>
+            <p class="text-gray-600 max-w-xl mx-auto mb-4">We explore black holes, exoplanets, and cosmology to redefine
+                our understanding of the cosmos.</p>
+
+            <ul class="text-left text-gray-700 list-disc list-inside max-w-xl mx-auto space-y-2">
+                <li>Black Holes: Simulating event horizons and accretion physics</li>
+                <li>Cosmology: Exploring dark energy and cosmic inflation</li>
+                <li>Exoplanets: Analyzing biosignatures in alien atmospheres</li>
+                <li>Gravitational Waves: Studying neutron star and black hole mergers</li>
+                <li>Quantum Time: Investigating multiverse and time-loop theories</li>
+            </ul>
+
+            <a href="#open-source"
+                class="mt-4 inline-block border border-gray-900 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-900 hover:text-white transition">
+                View Research
+            </a>
         </div>
     </section>
 
-    <section id="projects" class="min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16" data-aos="zoom-in">
-        <div class="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-lg">
+
+    <section id="projects"
+        class="min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16 relative"
+        data-aos="zoom-in">
+        <!-- Vector SVG Background -->
+        <svg class="absolute bottom-8 left-6 w-24 h-24 opacity-20" viewBox="0 0 100 100">
+            <path d="M30 30 Q50 10 70 30 T90 70 T50 90 T10 70 T30 30" fill="none" stroke="#87ceeb" stroke-width="2" />
+        </svg>
+
+        <div class="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-lg relative z-10">
             <h2 class="text-3xl font-semibold mb-3">Our Projects</h2>
-            <p class="text-gray-600 max-w-xl mx-auto">From BlackHoleViz to GalaxySim, our projects push the boundaries of cosmic exploration.</p>
-            <a href="#open-source" class="mt-3 inline-block border border-gray-900 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-900 hover:text-white transition">Join a Project</a>
+            <p class="text-gray-600 max-w-xl mx-auto mb-4">From BlackHoleViz to GalaxySim, our projects push the
+                boundaries of cosmic exploration.</p>
+
+            <ul class="text-left text-gray-700 list-disc list-inside max-w-xl mx-auto space-y-2">
+                <li><strong>BlackHoleViz</strong>: Real-time visualizer of rotating black holes</li>
+                <li><strong>GalaxySim</strong>: Procedural galaxy generation for research and art</li>
+                <li><strong>TimeWeave</strong>: Experimental simulator for quantum time theories</li>
+            </ul>
+
+            <a href="#open-source"
+                class="mt-4 inline-block border border-gray-900 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-900 hover:text-white transition">
+                Join a Project
+            </a>
         </div>
     </section>
 
-    <section id="discoveries" class="min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16" data-aos="fade-up">
-        <div class="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-lg">
+
+    <section id="discoveries"
+        class="min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16 relative"
+        data-aos="fade-up">
+        <!-- Orbital SVG -->
+        <svg class="absolute top-4 right-8 w-20 h-20 opacity-20" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" fill="none" stroke="#87ceeb" stroke-width="1.5" />
+            <circle cx="70" cy="30" r="3" fill="#87ceeb" />
+        </svg>
+
+        <div class="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-lg relative z-10">
             <h2 class="text-3xl font-semibold mb-3">Discoveries</h2>
-            <p class="text-gray-600 max-w-xl mx-auto">Our breakthroughs illuminate the cosmos, from black holes to exoplanets.</p>
-            <a href="#publications" class="mt-3 inline-block border border-gray-900 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-900 hover:text-white transition">See Discoveries</a>
+            <p class="text-gray-600 max-w-xl mx-auto mb-4">Our breakthroughs illuminate the cosmos, from black holes to
+                exoplanets.</p>
+
+            <ul class="text-left text-gray-700 list-disc list-inside max-w-xl mx-auto space-y-2">
+                <li>First simulation of time dilation near a rotating black hole</li>
+                <li>Detection algorithm for Earth-like exoplanet atmospheres</li>
+                <li>Waveform reconstruction tool used in LIGO-X partnership</li>
+            </ul>
+
+            <a href="#publications"
+                class="mt-4 inline-block border border-gray-900 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-900 hover:text-white transition">
+                See Discoveries
+            </a>
         </div>
     </section>
 
-    <section id="team" class="min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16" data-aos="zoom-in">
-        <div class="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-lg">
+
+    <section id="team" class="min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16 relative"
+        data-aos="zoom-in">
+        <!-- Decorative SVG Galaxy Node -->
+        <svg class="absolute top-6 left-6 w-20 h-20 opacity-20" viewBox="0 0 100 100">
+            <path d="M50 10 A40 40 0 0 1 90 50 A40 40 0 0 1 50 90 A40 40 0 0 1 10 50 A40 40 0 0 1 50 10" fill="none"
+                stroke="#87ceeb" stroke-width="1.5" />
+        </svg>
+
+        <div class="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-lg relative z-10">
             <h2 class="text-3xl font-semibold mb-3">Our Team</h2>
-            <p class="text-gray-600 max-w-xl mx-auto">A global crew of astrophysicists and engineers driving cosmic innovation.</p>
-        </div>
-    </section>
+            <p class="text-gray-600 max-w-xl mx-auto mb-4">A global crew of astrophysicists and engineers driving cosmic
+                innovation.</p>
 
-    <section id="events" class="min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16" data-aos="fade-up">
-        <div class="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-lg">
-            <h2 class="text-3xl font-semibold mb-3">Events</h2>
-            <p class="text-gray-600 max-w-xl mx-auto">Join our workshops and lectures to explore the universe.</p>
-            <a href="#contact" class="mt-3 inline-block border border-gray-900 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-900 hover:text-white transition">Register</a>
-        </div>
-    </section>
-
-    <section id="publications" class="min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16" data-aos="zoom-in">
-        <div class="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-lg">
-            <h2 class="text-3xl font-semibold mb-3">Publications</h2>
-            <p class="text-gray-600 max-w-xl mx-auto">Our open-access papers advance cosmic knowledge.</p>
-            <a href="#contact" class="mt-3 inline-block border border-gray-900 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-900 hover:text-white transition">Access Papers</a>
-        </div>
-    </section>
-
-    <section id="open-source" class="min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16" data-aos="fade-up">
-        <div class="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-lg">
-            <h2 class="text-3xl font-semibold mb-3">Open Source</h2>
-            <p class="text-gray-600 max-w-xl mx-auto">Our tools like BlackHoleViz are open for collaboration.</p>
-            <a href="https://github.com/cosmickal" target="_blank" class="mt-3 inline-block border border-gray-900 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-900 hover:text-white transition">Visit GitHub</a>
-        </div>
-    </section>
-
-    <section id="contact" class="min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16" data-aos="zoom-in">
-        <div class="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-lg">
-            <h2 class="text-3xl font-semibold mb-3">Contact Us</h2>
-            <p class="text-gray-600 max-w-xl mx-auto">Have questions or ideas? Reach out to join our mission.</p>
-            <div class="max-w-md mx-auto mt-4">
-                <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-2 mb-3 focus:border-gray-900 focus:ring-2 focus:ring-gray-900 focus:outline-none" placeholder="Name" required>
-                <input type="email" class="w-full border border-gray-300 rounded-lg px-4 py-2 mb-3 focus:border-gray-900 focus:ring-2 focus:ring-gray-900 focus:outline-none" placeholder="Email" required>
-                <textarea class="w-full border border-gray-300 rounded-lg px-4 py-2 mb-3 focus:border-gray-900 focus:ring-2 focus:ring-gray-900 focus:outline-none" rows="4" placeholder="Message" required></textarea>
-                <button type="submit" class="w-full border border-gray-900 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-900 hover:text-white transition">Send</button>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                <div>
+                    <h3 class="text-lg font-medium">Dr. Steven Strange</h3>
+                    <p class="text-sm text-gray-500">Principal Theoretical Physicist</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium">Tony Cruz</h3>
+                    <p class="text-sm text-gray-500">Simulation Architect</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium">Dr. Strange</h3>
+                    <p class="text-sm text-gray-500">Astrobiologist & Exoplanet Analyst</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium">Hulk</h3>
+                    <p class="text-sm text-gray-500">Cosmic Data Engineer</p>
+                </div>
             </div>
         </div>
     </section>
+
+
+    <section id="events" class="min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16 relative"
+        data-aos="fade-up">
+        <!-- Planetary Orbit SVG -->
+        <svg class="absolute bottom-6 right-6 w-24 h-24 opacity-20" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" fill="none" stroke="#87ceeb" stroke-width="1.5" />
+            <circle cx="70" cy="30" r="3" fill="#87ceeb" />
+        </svg>
+
+        <div class="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-lg relative z-10">
+            <h2 class="text-3xl font-semibold mb-3">Events</h2>
+            <p class="text-gray-600 max-w-xl mx-auto mb-4">Join our workshops and lectures to explore the universe.</p>
+
+            <ul class="text-left text-gray-700 list-disc list-inside max-w-xl mx-auto space-y-2">
+                <li><strong>Astrophysics Bootcamp</strong> – June 12, Virtual</li>
+                <li><strong>Time-Space Lecture Series</strong> – July 20, Zurich</li>
+                <li><strong>GalaxySim Dev Sprint</strong> – August 5, Online</li>
+            </ul>
+
+            <a href="#contact"
+                class="mt-4 inline-block border border-gray-900 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-900 hover:text-white transition">Register</a>
+        </div>
+    </section>
+
+
+    <section id="publications"
+        class="min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16 relative"
+        data-aos="zoom-in">
+        <!-- Spiral SVG -->
+        <svg class="absolute top-6 left-1/2 -translate-x-1/2 w-28 h-28 opacity-10" viewBox="0 0 200 200">
+            <path d="M100 20 A80 80 0 0 1 180 100 A80 80 0 0 1 100 180 A80 80 0 0 1 20 100 A80 80 0 0 1 100 20"
+                fill="none" stroke="#87ceeb" stroke-width="1" />
+        </svg>
+
+        <div class="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-lg relative z-10">
+            <h2 class="text-3xl font-semibold mb-3">Publications</h2>
+            <p class="text-gray-600 max-w-xl mx-auto mb-4">Our open-access papers advance cosmic knowledge.</p>
+
+            <ul class="text-left text-gray-700 list-disc list-inside max-w-xl mx-auto space-y-2">
+                <li><strong>“Relativistic Fluid Simulation near Black Holes”</strong> – Journal of Astrophysics</li>
+                <li><strong>“Entropy & Dark Matter Collapse”</strong> – Quantum Horizons Review</li>
+                <li><strong>“Visualizing Event Horizon Oscillations”</strong> – OpenCosmos Archive</li>
+            </ul>
+
+            <a href="#contact"
+                class="mt-4 inline-block border border-gray-900 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-900 hover:text-white transition">Access
+                Papers</a>
+        </div>
+    </section>
+
+
+    <section id="open-source"
+        class="min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16 relative"
+        data-aos="fade-up">
+        <!-- Terminal Icon SVG -->
+        <svg class="absolute top-4 right-8 w-20 h-20 opacity-20" viewBox="0 0 100 100">
+            <path d="M10 20 H90 V80 H10 Z M20 30 L40 50 L20 70 M50 70 H75" fill="none" stroke="#87ceeb"
+                stroke-width="2" />
+        </svg>
+
+        <div class="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-lg relative z-10">
+            <h2 class="text-3xl font-semibold mb-3">Open Source</h2>
+            <p class="text-gray-600 max-w-xl mx-auto mb-4">Our tools like BlackHoleViz are open for collaboration.</p>
+
+            <ul class="text-left text-gray-700 list-disc list-inside max-w-xl mx-auto space-y-2">
+                <li><strong>BlackHoleViz</strong> – A GPU-powered black hole renderer</li>
+                <li><strong>QuantumPlotter</strong> – Visualize wave collapse probabilities</li>
+                <li><strong>GalacticAPI</strong> – Open API for celestial body simulations</li>
+            </ul>
+
+            <a href="https://github.com/cosmipi" target="_blank"
+                class="mt-4 inline-block border border-gray-900 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-900 hover:text-white transition">Visit
+                GitHub</a>
+        </div>
+    </section>
+
+
+    <section id="contact" class="min-h-[60vh] flex flex-col justify-center items-center text-center px-4 py-16 relative"
+        data-aos="zoom-in">
+        <!-- Email Icon SVG -->
+        <svg class="absolute bottom-8 left-6 w-20 h-20 opacity-20" viewBox="0 0 100 100">
+            <path d="M10 30 L50 60 L90 30 M10 30 H90 V70 H10 Z" fill="none" stroke="#87ceeb" stroke-width="2" />
+        </svg>
+
+        <div class="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-lg relative z-10">
+            <h2 class="text-3xl font-semibold mb-3">Contact Us</h2>
+            <p class="text-gray-600 max-w-xl mx-auto mb-4">Have questions or ideas? Reach out to join our mission.</p>
+
+            <div class="max-w-md mx-auto mt-4">
+                <input type="text"
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 mb-3 focus:border-gray-900 focus:ring-2 focus:ring-gray-900 focus:outline-none"
+                    placeholder="Name" required>
+                <input type="email"
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 mb-3 focus:border-gray-900 focus:ring-2 focus:ring-gray-900 focus:outline-none"
+                    placeholder="Email" required>
+                <textarea
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 mb-3 focus:border-gray-900 focus:ring-2 focus:ring-gray-900 focus:outline-none"
+                    rows="4" placeholder="Message" required></textarea>
+                <button type="submit"
+                    class="w-full border border-gray-900 text-gray-900 px-4 py-2 rounded-md hover:bg-gray-900 hover:text-white transition">Send</button>
+            </div>
+        </div>
+    </section>
+
 
     <footer class="bg-gray-900 text-white py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -395,20 +823,23 @@
             <div>
                 <h3 class="text-lg font-medium mb-3">Repositories</h3>
                 <ul class="space-y-2">
-                    <li><a href="https://github.com/cosmipi/blackholeviz" target="_blank" class="text-gray-300 hover:text-white transition">BlackHoleViz</a></li>
-                    <li><a href="https://github.com/cosmipi/galaxysim" target="_blank" class="text-gray-300 hover:text-white transition">GalaxySim</a></li>
-                    <li><a href="https://github.com/cosmipi/exoview" target="_blank" class="text-gray-300 hover:text-white transition">ExoView</a></li>
+                    <li><a href="https://github.com/cosmickal/blackholeviz" target="_blank"
+                            class="text-gray-300 hover:text-white transition">BlackHoleViz</a></li>
+                    <li><a href="https://github.com/cosmickal/galaxysim" target="_blank"
+                            class="text-gray-300 hover:text-white transition">GalaxySim</a></li>
+                    <li><a href="https://github.com/cosmickal/exoview" target="_blank"
+                            class="text-gray-300 hover:text-white transition">ExoView</a></li>
                 </ul>
             </div>
             <div>
                 <h3 class="text-lg font-medium mb-3">Connect</h3>
                 <div class="flex justify-center md:justify-start space-x-4">
-                    
+
                 </div>
             </div>
         </div>
         <p class="text-center text-gray-300 text-sm mt-6">Exploring the universe, one discovery at a time.</p>
-        <p class="text-center text-gray-300 text-sm mt-2">© 2025 CosmiPi Research Lab</p>
+        <p class="text-center text-gray-300 text-sm mt-2">© 2025 Cosmickal Research Lab</p>
     </footer>
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -450,7 +881,7 @@
             dropdown.classList.toggle('hidden');
         }
 
-         // Particle animation
+        // Particle animation
         const particleContainer = document.getElementById('particles');
         const colors = ['red', 'blue', 'green', 'purple', 'white'];
         function createParticle() {
@@ -467,7 +898,7 @@
         }
         setInterval(createParticle, 40);
 
-           // Ray bursts
+        // Ray bursts
         function createRay() {
             const ray = document.createElement('div');
             ray.classList.add('ray');
@@ -538,4 +969,5 @@
 
     </script>
 </body>
+
 </html>
